@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diet & Environmental Impact Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Plotly JS -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body { padding-top: 56px; }
+    .hero {
+      background: linear-gradient(135deg, #3b82f6, #60a5fa);
+      color: white; text-align: center; padding: 4rem 1rem;
+    }
+    .hero h1 { font-size: 3rem; }
+    .card-title { color: #1e3a8a; }
+    .accordion-button:not(.collapsed) { background: #3b82f6; color: white; }
+    footer { background: #f8f9fa; text-align: center; padding: 1rem; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#">DietEnvViz</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navMenu" aria-controls="navMenu"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#intro">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#insights">Insights</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="intro" class="hero">
+  <div class="container">
+    <h1>Diet & Environmental Impact Dashboard</h1>
+    <p class="lead">
+      Interactive exploration of UK diet-environment data from the University of Oxford's EPIC-Oxford study.
+    </p>
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <a href="https://ora.ox.ac.uk/objects/uuid:ca441840-db5a-48c8-9b82-1ec1d77c2e9c" class="btn btn-outline-light btn-lg" target="_blank">View Dataset</a>
+      <a href="https://github.com/elakiavm/-Research_Methods_CW2.git" class="btn btn-light btn-lg" target="_blank">View GitHub</a>
+    </div>
+  </div>
+</section>
+<!-- About the Dataset Section -->
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">About the Dataset</h2>
+      <ul>
+        <li>Dietary records from over <strong>55,000 UK adults</strong>, classified into <strong>vegans, vegetarians, fish-eaters</strong>, and <strong>meat-eaters</strong>.</li>
+        <li>Estimates for environmental metrics like <strong>greenhouse gas emissions, land use, water use, eutrophication</strong>, and <strong>biodiversity loss</strong>.</li>
+        <li>Data standardized to <strong>2,000 kcal/day</strong> and stratified by <strong>age, sex,</strong> and <strong>diet group</strong>.</li>
+        <li>Includes <strong>1,000 Monte Carlo simulations</strong> for each estimate to ensure robustness.</li>
+      </ul>
+      <p class="text-muted small">Insights from this dataset provide a clear lens into how dietary choices affect environmental footprints—and highlight the benefits of more plant-based eating patterns.</p>
+    </div>
+  </section>
+
+<!-- Visualization Gallery -->
+<section id="gallery" class="py-5">
+  <div class="container">
+    <h2 class="mb-4 text-center"> Visualizations Overview</h2>
+    <div class="row g-4">
+
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"> Treemap: Land Use by Diet, Age & Sex</h5>
+            <p class="card-text small">Visualizes <strong>mean daily land use</strong> by diet, age, and sex.<br>Shows how <strong>meat-heavy diets</strong>, especially in older males, require significantly more land.</p>
+            <div>{{ tm_div|safe }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"> Parallel Coordinates: Environmental Metrics by Diet</h5>
+            <p class="card-text small">Compares metrics like GHGs, land use, and eutrophication across diets. <strong>Plant-based diets</strong> show consistently <strong>lower impact</strong>.</p>
+            <div>{{ pc_div|safe }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"> Heatmaps: Metric Correlation</h5>
+            <p class="card-text small">Left: Raw correlation; Right: Clustered. <br>Helps spot <strong>redundant features</strong> and supports dimensionality reduction.</p>
+            <div class="row">
+              <div class="col-6">
+                <img src="data:image/png;base64,{{ heatmap_b64 }}" class="img-fluid" alt="Heatmap">
+              </div>
+              <div class="col-6">
+                <img src="data:image/png;base64,{{ clustermap_b64 }}" class="img-fluid" alt="Clustered Heatmap">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="card shadow-sm" style="min-height: 600px;">
+          <div class="card-body">
+            <h5 class="card-title"> Scatterplot Matrix: Metric Relationships by Diet</h5>
+            <p class="card-text small">Shows pairwise comparisons between environmental metrics. <br>Useful for identifying <strong>clusters, trends, and outliers</strong>.</p>
+            <div style="height:100%; overflow:auto;">{{ sp_div|safe }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"> Radar Chart: Diet Impact Profiles</h5>
+            <p class="card-text small">Visualizes environmental shapes per diet. <br><strong>Compact shape = lower impact</strong>.</p>
+            <div>{{ radar_div|safe }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"> Correlation Network: Linked Metrics</h5>
+            <p class="card-text small">Visualizes metrics with correlation > 0.6. <br>See which ones <strong>move together</strong>.</p>
+            <div>{{ net_div|safe }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"> PCA Biplot: Dimensionality Reduction</h5>
+            <p class="card-text small">Reduces data into 2D for pattern detection. <br>Shows <strong>diet clustering and separation</strong>.</p>
+            <div>{{ pca_div|safe }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"> Sankey Diagram: Diet to GHG Emission Levels</h5>
+            <p class="card-text small">Connects diet groups to low/medium/high GHG levels. <br>Plant-based diets mostly fall into <strong>low emission</strong> category.</p>
+            <div>{{ sankey_div|safe }}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Insights Section -->
+<section id="insights" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="mb-4">Unique Observation: Insights from the Treemap</h2>
+    <p>The <strong>treemap visualization</strong> revealed a surprising pattern within the <strong>‘High meat consumption’</strong> group:</p>
+    <ul>
+      <li><strong>Adult</strong> and <strong>Mature adult</strong> subgroups had <strong>larger segment sizes</strong>, implying more participants.</li>
+      <li>However, they showed only <strong>moderate average land use</strong> compared to the <strong>Elderly</strong> group.</li>
+    </ul>
+    <p><strong>Insight:</strong> Mean land use doesn't consistently increase with age among meat-eaters. This raises questions about age-related consumption behavior that merits deeper analysis.</p>
+
+    <hr class="my-5">
+    <h2 class="mb-4">Data Preparation & Processing</h2>
+    <h5>1. Correlation Analysis & Feature Reduction</h5>
+    <ul>
+      <li>Computed a correlation matrix for environmental metrics.</li>
+      <li>Removed highly correlated variable pairs (r ≥ 0.9) to avoid multicollinearity—except for <code>mean_land</code> due to its significance.</li>
+    </ul>
+    <h5 class="mt-4">2. Categorization Logic</h5>
+    <ul>
+      <li><strong>Diet Category</strong>: Grouped raw labels into Plant-based, Vegetarian, Pescatarian, Medium/High meat consumption, and Other.</li>
+      <li><strong>Age Group Category</strong>: Parsed from age ranges:
+        <ul>
+          <li><code>Young adult</code> (under 30)</li>
+          <li><code>Adult</code> (30–39)</li>
+          <li><code>Mature adult</code> (40–49)</li>
+          <li><code>Senior adult</code> (50–59)</li>
+          <li><code>Elderly</code> (60+)</li>
+        </ul>
+      </li>
+    </ul>
+    <p>These transformations supported cleaner treemap grouping and improved interpretability across visualizations.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    &copy; 2025 DietEnvViz | Built with Flask & Plotly
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
