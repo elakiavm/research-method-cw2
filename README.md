@@ -30,7 +30,7 @@ It includes:
 
 ---
 
-## 📘 How to Use This Notebook
+## 📘 How to Use This Notebook(Diet_Impact_Dashboard.ipynb)
 
 ### 🔄 Step-by-Step Workflow
 
@@ -66,7 +66,7 @@ It includes:
 - Colab provides full interactivity for Plotly graphs.
 - Local Jupyter Notebooks will render static plots unless running on supported environments.
 
-🔗 [Open in Google Colab (Recommended)](https://colab.research.google.com/github/elakiavm/-Research_Methods_CW2.git)
+🔗 [Open in Google Colab (Recommended)]()
 
 ---
 
@@ -81,6 +81,6 @@ It includes:
 ## 📎 Links
 
 - 📂 [Dataset Source (Oxford ORA)](https://ora.ox.ac.uk/objects/uuid:ca441840-db5a-48c8-9b82-1ec1d77c2e9c)
-- 🌐 [Interactive Dashboard (GitHub Pages)](https://elakiavm.github.io/-Research_Methods_CW2/)
+- 🌐 [Interactive Dashboard ](https://research-method-cw2.onrender.com/)
 - 💻 [Project Code Repository](https://github.com/elakiavm/-Research_Methods_CW2.git)
 
