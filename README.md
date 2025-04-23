@@ -66,7 +66,7 @@ It includes:
 - Colab provides full interactivity for Plotly graphs.
 - Local Jupyter Notebooks will render static plots unless running on supported environments.
 
-🔗 [Open in Google Colab (Recommended)]()
+🔗 [Open in Google Colab (Recommended)](https://github.com/elakiavm/research-method-cw2/blob/main/Diet_Impact_Dashboard.ipynb)
 
 ---
 
