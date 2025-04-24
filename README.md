@@ -8,13 +8,15 @@ This repository provides an interactive data visualization dashboard that explor
 
 ```
 Research_Methods_CW2/
+website files
 ├── static/
 │   └── Results_21Mar2022.csv
 ├── templates/
 │   └── index.html
-├── Diet_Impact_Dashboard.ipynb
 ├── README.md
 └── app.py
+Main file
+├── Diet_Impact_Dashboard.ipynb (main file)
 ```
 
 ---
