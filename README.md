@@ -1,4 +1,5 @@
-# 🌱 Diet & Environmental Impact Dashboard
+
+# 🌱 Diet & Environmental Impact Dashboard ( MAIN FILE NAME : main.ipynb)
 
 This repository provides an interactive data visualization dashboard that explores the environmental impacts of various dietary patterns in the UK. The project is built using Python, and all analysis and plots are implemented in a Jupyter Notebook, enabling transparent, reproducible exploration.
 
@@ -8,29 +9,17 @@ This repository provides an interactive data visualization dashboard that explor
 
 ```
 Research_Methods_CW2/
-<<<<<<< HEAD
 files for website
 ├── static/
-│   └── Results_21Mar2022.csv (dataset)
+│   └── Results_21Mar2022.csv
 ├── templates/
-│   └── index.html (UI)
+│   └── index.html
 ├── README.md
-└── app.py (flask)
+└── app.py
 main file 
-├── main.ipynb
-=======
-website files
-├── static/
-│   └── Results_21Mar2022.csv(dataset)
-├── templates/
-│   └── index.html (UI)
-├── README.md
-└── app.py(Flask)
-Main file
-├── Diet_Impact_Dashboard.ipynb (main file)
->>>>>>> bc7853e38c57f48b45860a0dd4a490a0de09ff3d
+├── main.ipynb 
 ```
-### MAIN CODE FILE NAME : main.ipynb
+
 ---
 
 ## 📊 About the Dataset
