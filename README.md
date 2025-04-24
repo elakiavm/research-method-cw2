@@ -8,15 +8,17 @@ This repository provides an interactive data visualization dashboard that explor
 
 ```
 Research_Methods_CW2/
+files for website
 ├── static/
-│   └── Results_21Mar2022.csv
+│   └── Results_21Mar2022.csv (dataset)
 ├── templates/
-│   └── index.html
-├── Diet_Impact_Dashboard.ipynb
+│   └── index.html (UI)
 ├── README.md
-└── app.py
+└── app.py (flask)
+main file 
+├── main.ipynb
 ```
-
+### MAIN CODE FILE NAME : main.ipynb
 ---
 
 ## 📊 About the Dataset
