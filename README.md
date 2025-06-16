@@ -1,11 +1,11 @@
 
-# 🌱 Diet & Environmental Impact Dashboard ( MAIN FILE NAME : main.ipynb)
+# Diet & Environmental Impact Dashboard ( MAIN FILE NAME : main.ipynb)
 
 This repository provides an interactive data visualization dashboard that explores the environmental impacts of various dietary patterns in the UK. The project is built using Python, and all analysis and plots are implemented in a Jupyter Notebook, enabling transparent, reproducible exploration.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 Research_Methods_CW2/
@@ -22,7 +22,7 @@ main file
 
 ---
 
-## 📊 About the Dataset
+## About the Dataset
 
 The dataset originates from the [EPIC-Oxford study](https://ora.ox.ac.uk/objects/uuid:ca441840-db5a-48c8-9b82-1ec1d77c2e9c), which investigates how different diets (vegan, vegetarian, fish-eater, and meat-eater) impact the environment. 
 
@@ -35,7 +35,7 @@ It includes:
 
 ## 📘 How to Use This Notebook(Diet_Impact_Dashboard.ipynb)
 
-### 🔄 Step-by-Step Workflow
+### Step-by-Step Workflow
 
 1. **Import Libraries**  
    Load all required packages including Plotly, Seaborn, NetworkX, and Scikit-learn.
@@ -62,9 +62,9 @@ It includes:
 
 ---
 
-## ✅ Recommended Usage
+## Recommended Usage
 
-📌 For the best experience, open the notebook using **Google Colab** or **JupyterLab**:
+For the best experience, open the notebook using **Google Colab** or **JupyterLab**:
 
 - Colab provides full interactivity for Plotly graphs.
 - Local Jupyter Notebooks will render static plots unless running on supported environments.
@@ -73,7 +73,7 @@ It includes:
 
 ---
 
-## 💡 Insights Highlighted
+## Insights Highlighted
 
 - Plant-based diets consistently show the **lowest environmental footprint** across all metrics.
 - A unique treemap pattern reveals that **land use in high meat consumers doesn't scale linearly with age**, suggesting complex lifestyle-diet interactions.
@@ -81,9 +81,9 @@ It includes:
 
 ---
 
-## 📎 Links
+## Links
 
-- 📂 [Dataset Source (Oxford ORA)](https://ora.ox.ac.uk/objects/uuid:ca441840-db5a-48c8-9b82-1ec1d77c2e9c)
-- 🌐 [Interactive Dashboard ](https://research-method-cw2.onrender.com/)
-- 💻 [Project Code Repository](https://github.com/elakiavm/-Research_Methods_CW2.git)
+- [Dataset Source (Oxford ORA)](https://ora.ox.ac.uk/objects/uuid:ca441840-db5a-48c8-9b82-1ec1d77c2e9c)
+- [Interactive Dashboard ](https://research-method-cw2.onrender.com/)
+- [Project Code Repository](https://github.com/elakiavm/-Research_Methods_CW2.git)
 
